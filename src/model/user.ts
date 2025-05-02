@@ -13,7 +13,7 @@ export interface User {
     isVerified:boolean;
     verifyCodeExpiry:Date;
     isAcceptingMessage:boolean;
-    message:Message[]
+    messages:Message[]
 }
 
 const MessageSchema: Schema<Message> = new Schema({
@@ -62,7 +62,7 @@ const UserSchema: Schema<User> = new Schema({
         type:Boolean,
         default:true
     },
-    message:[MessageSchema]
+    messages:[MessageSchema]
 
 })
 
