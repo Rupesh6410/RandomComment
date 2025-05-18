@@ -1,6 +1,7 @@
 import mongoose ,{Schema} from "mongoose";
 
 export interface Message {
+    _id:string;
     content:string;
     createdAt:Date
 }
@@ -15,19 +16,17 @@ export interface User {
     isAcceptingMessage:boolean;
     messages:Message[]
 }
-
-const MessageSchema: Schema<Message> = new Schema({
-    content:{
-        type:String,
-        required:true
+const MessageSchema: Schema<Message> = new mongoose.Schema({
+    content: {
+      type: String,
+      required: true,
     },
-    createdAt:{
-        type:Date,
-        required:true , 
-        default:Date.now
-    }
-
-})
+    createdAt: {
+      type: Date,
+      required: true,
+      default: Date.now,
+    },
+  });
 
 const UserSchema: Schema<User> = new Schema({
     username:{
